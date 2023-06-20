@@ -25,17 +25,31 @@
       { text: 'Nice Nice Nice!', id: 542328 }
     ];
 
+    const year = (new Date).getFullYear()
+
     // Some and Every Checks
+    function nineteenOrOlder(element) {
+      return (year - element.year) >= 19
+    }
+
     // Array.prototype.some() // is at least one person 19 or older?
+    console.log(people.some(nineteenOrOlder));
+
     // Array.prototype.every() // is everyone 19 or older?
+    console.log(people.every(nineteenOrOlder));
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const correctID = comments.find(comment => comment.id === 823423)
+    console.log(correctID);
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
+    const index = comments.findIndex(comment => comment.id === 823423)
     // delete the comment with the ID of 823423
+    comments.splice(index, 1)
+    console.table(comments);
 
   </script>
 </body>
