@@ -10,7 +10,8 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
+    const p = document.querySelector('p')
 
     function makeGreen() {
       const p = document.querySelector('p');
@@ -19,28 +20,69 @@
     }
 
     // Regular
+    console.log('Hello');
 
     // Interpolated
+    console.log('Hello my name is %s', 'Michael Scott');
+    const name = 'Dwight Schrutt'
+    console.log(`Hello my name is ${name}`);
 
     // Styled
+    console.log('%cI ran 10k this morning', 'color: cyan');
 
     // warning!
+    console.warn('DANGER!');
 
     // Error :|
+    console.error('I declare bankruptcy!');
 
     // Info
+    console.info('The weather is shit today...')
 
     // Testing
+    console.assert(1 === 2, 'That is wrong you dumb shit')
 
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
+    // console.log(p);
+    // console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      // console.group(`${dog.name}`);
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name}'s age is equivalent to ${dog.age * 7}`);
+      console.groupEnd(`${dog.name}`)
+    })
 
     // counting
+    console.groupCollapsed('Counting names')
+    console.count('Jim')
+    console.count('Jim')
+    console.count('Dwight')
+    console.count('Jim')
+    console.count('Dwight')
+    console.count('Dwight')
+    console.count('Jim')
+    console.count('Dwight')
+    console.count('Jim')
+    console.groupEnd('Counting names')
 
     // timing
+    console.time('Fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(response => response.json())
+      .then(data => {
+        console.timeEnd('Fetching data');
+        console.log(data);
+      })
+
+    // table
+    console.table(dogs)
 
   </script>
 </body>
