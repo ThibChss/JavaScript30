@@ -33,6 +33,10 @@
 
     // or use the new ES6 Spread
 
+    const newArrayOne = [...players]
+
+    const newArrayTwo = Array.from(players)
+
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
@@ -46,6 +50,8 @@
     // and think we make a copy:
 
     // how do we take a copy instead?
+
+    const newObject = structuredClone(person)
 
     // We will hopefully soon see the object ...spread
 
