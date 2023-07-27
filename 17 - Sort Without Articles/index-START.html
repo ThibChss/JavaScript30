@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Sort Without Articles</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
 
   <style>
@@ -41,16 +43,31 @@
       color: #ffc600;
       text-decoration: none;
     }
-
   </style>
 
   <ul id="bands"></ul>
 
-<script>
-const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+  <script>
+    const bands           = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+    const regex           = /(a |an |the )/i
+    const list            = document.querySelector('#bands')
 
+    let items             = ``
 
-</script>
+    function sorting(a, b) {
+      const titleA    = a.toLowerCase().replace(regex, '');
+      const titleB    = b.toLowerCase().replace(regex, '');
 
+      if (titleA > titleB) return 1;
+      if (titleA < titleB) return -1;
+      return 0;
+    }
+
+    bands.sort(sorting).forEach(band => items += `<li>${band}</li>`);
+
+    list.innerHTML = items;
+
+  </script>
 </body>
+
 </html>
